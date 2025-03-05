@@ -6,6 +6,8 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+// 注册 article.js 路由
+var articlesRouter = require('./routes/articles')
 
 var app = express();
 
@@ -21,6 +23,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+// 挂载 articles.js 路由
+app.use('/articles', articlesRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
